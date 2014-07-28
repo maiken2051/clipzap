@@ -723,7 +723,7 @@ Friend Class ClipZapMain
 
             lastCR = 0
 
-            For Each tok In src.Split(vbCr, vbTab, " "c, vbLf, ","c)
+            For Each tok In src.Replace("`", String.Empty).Split(vbCr, vbTab, " "c, vbLf, ","c)
 
                 If Not String.IsNullOrWhiteSpace(tok) Then
                     If isFirst Then
@@ -970,4 +970,32 @@ Friend Class ClipZapMain
         GenericCBFormat(Function(src) HttpUtility.UrlEncode(src))
 
     End Sub
+
+    Private Function MarkDownTable(src As String) As String
+        '
+        ' Convert a Markdown table header to the corresponding dashes row
+        '
+
+        Dim sl As Integer = src.Length, ci As Integer
+
+        Dim db(sl) As Char
+
+        sl = sl - 1
+
+        For ci = 0 To sl
+            If src(ci) = "|"c Then
+                db(ci) = "|"c
+            Else
+                db(ci) = "-"c
+            End If
+        Next
+
+        MarkDownTable = New String(db)
+
+    End Function
+
+    Private Sub MarkdownTableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MarkdownTableToolStripMenuItem.Click
+        GenericCBFormat(AddressOf MarkDownTable)
+    End Sub
+
 End Class
