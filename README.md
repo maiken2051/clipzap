@@ -1,0 +1,4 @@
+clipzap
+=======
+
+Clipboard Text Manipulator
