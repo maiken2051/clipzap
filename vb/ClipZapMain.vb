@@ -404,7 +404,7 @@ Friend Class ClipZapMain
 
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem2.Click
+    Private Sub ToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         '
         ' BCStatic
         '
@@ -463,7 +463,7 @@ Friend Class ClipZapMain
         Status.Text = Len(src) & " chars processed"
     End Sub
 
-    Private Sub DataTableToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataTableToolStripMenuItem.Click
+    Private Sub DataTableToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         '
         ' Turn Create Table into a DataTable
         '
@@ -614,7 +614,7 @@ Friend Class ClipZapMain
 
     End Sub
 
-    Private Sub ToNetTableToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToNetTableToolStripMenuItem.Click
+    Private Sub ToNetTableToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         '
         ' Change plain HTML table to ASP.Net table
         '
@@ -648,7 +648,7 @@ Friend Class ClipZapMain
         End If
     End Sub
 
-    Private Sub FiddlerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles FiddlerToolStripMenuItem.Click
+    Private Sub FiddlerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs)
         '
         ' Replace localhost with ipv4.fiddler
         '
@@ -1031,5 +1031,55 @@ Friend Class ClipZapMain
 
     Private Sub QPrintableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QPrintableToolStripMenuItem.Click
         GenericCBFormat(AddressOf QuotedPrintable)
+    End Sub
+
+    Private Sub Standard_Process_Lines(handler As CBFormat)
+        '
+        ' The normal process but per CRLF line
+        '
+        Dim src As String = My.Computer.Clipboard.GetText()
+        Dim acc As New StringBuilder, iLine As String, rv As String
+
+        If String.IsNullOrEmpty(src) Then
+            Status.Text = "Clipboard Empty"
+        Else
+            For Each iLine In src.Split(CChar(vbCr), CChar(vbLf))
+                iLine = iLine.Trim()
+
+                If iLine.Length > 0 Then
+                    rv = handler(iLine)
+
+                    If rv.Length > 0 Then
+                        acc.AppendLine(rv)
+                    End If
+                End If
+
+            Next
+
+            src = acc.ToString()
+        End If
+
+        My.Computer.Clipboard.Clear()
+        My.Computer.Clipboard.SetText(src)
+
+        Status.Text = src.Length & " chars processed"
+    End Sub
+
+    Private Sub MySQLColAddToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MySQLColAddToolStripMenuItem.Click
+        '
+        ' Convert MySQL DDL to "add column"
+        '
+
+        Dim tblName As String
+
+        tblName = InputBox("MySQL table name", "MySQL Column Add")
+
+        If tblName.Length = 0 Then
+            Exit Sub
+        End If
+
+        Standard_Process_Lines(Function(x As String)
+                                   Return "alter table " + tblName + " add column " + x.Trim(" "c, ","c) + ";"
+                               End Function)
     End Sub
 End Class
