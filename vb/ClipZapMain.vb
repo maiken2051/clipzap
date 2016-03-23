@@ -5,6 +5,7 @@ Imports System.Text
 Imports System.Text.RegularExpressions
 Imports Manoli.Utils.CSharpFormat
 Imports System.Web
+Imports System.IO
 
 Friend Class ClipZapMain
     Inherits System.Windows.Forms.Form
@@ -998,4 +999,37 @@ Friend Class ClipZapMain
         GenericCBFormat(AddressOf MarkDownTable)
     End Sub
 
+    Private Function QuotedPrintable(ByVal src As String) As String
+        Dim acc As New StringBuilder(), l As String
+
+        Using sr As New StringReader(src)
+
+            l = sr.ReadLine()
+
+            While Not IsNothing(l)
+
+                l = l.Trim()
+
+                If l.EndsWith("=20") Then
+                    acc.Append(l.Substring(0, l.Length - 3))
+                    acc.Append(" ")
+                ElseIf l.EndsWith("=") Then
+                    acc.Append(l.Substring(0, l.Length - 1))
+                Else
+                    acc.AppendLine(l)
+                End If
+
+                l = sr.ReadLine()
+
+            End While
+
+        End Using
+
+        QuotedPrintable = acc.ToString()
+
+    End Function
+
+    Private Sub QPrintableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QPrintableToolStripMenuItem.Click
+        GenericCBFormat(AddressOf QuotedPrintable)
+    End Sub
 End Class

@@ -82,6 +82,7 @@
         Me.FiddlerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HTMLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HTMLParaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MarkdownTableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SlashesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SQLTableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -99,7 +100,7 @@
         Me.CodeSQL = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodeVB = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodeFormatJavaScript = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MarkdownTableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QPrintableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainMenu1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -352,7 +353,7 @@
         '
         'QuickToolStripMenuItem
         '
-        Me.QuickToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.CommaSepToolStripMenuItem, Me.DataTableToolStripMenuItem, Me.DDLFieldsToolStripMenuItem, Me.DDLFieldListToolStripMenuItem, Me.FiddlerToolStripMenuItem, Me.HTMLToolStripMenuItem, Me.HTMLParaToolStripMenuItem, Me.MarkdownTableToolStripMenuItem, Me.QuotesToolStripMenuItem, Me.SlashesToolStripMenuItem, Me.SQLTableToolStripMenuItem, Me.SQLUpdateToolStripMenuItem, Me.ToNetTableToolStripMenuItem, Me.UnHTMLToolStripMenuItem, Me.UnURL, Me.ToURL})
+        Me.QuickToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.CommaSepToolStripMenuItem, Me.DataTableToolStripMenuItem, Me.DDLFieldsToolStripMenuItem, Me.DDLFieldListToolStripMenuItem, Me.FiddlerToolStripMenuItem, Me.HTMLToolStripMenuItem, Me.HTMLParaToolStripMenuItem, Me.MarkdownTableToolStripMenuItem, Me.QPrintableToolStripMenuItem, Me.QuotesToolStripMenuItem, Me.SlashesToolStripMenuItem, Me.SQLTableToolStripMenuItem, Me.SQLUpdateToolStripMenuItem, Me.ToNetTableToolStripMenuItem, Me.UnHTMLToolStripMenuItem, Me.UnURL, Me.ToURL})
         Me.QuickToolStripMenuItem.Name = "QuickToolStripMenuItem"
         Me.QuickToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
         Me.QuickToolStripMenuItem.Text = "&Quick"
@@ -404,6 +405,12 @@
         Me.HTMLParaToolStripMenuItem.Name = "HTMLParaToolStripMenuItem"
         Me.HTMLParaToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
         Me.HTMLParaToolStripMenuItem.Text = "HTML &Para"
+        '
+        'MarkdownTableToolStripMenuItem
+        '
+        Me.MarkdownTableToolStripMenuItem.Name = "MarkdownTableToolStripMenuItem"
+        Me.MarkdownTableToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.MarkdownTableToolStripMenuItem.Text = "Markdown Table"
         '
         'QuotesToolStripMenuItem
         '
@@ -507,11 +514,11 @@
         Me.CodeFormatJavaScript.Size = New System.Drawing.Size(140, 22)
         Me.CodeFormatJavaScript.Text = "JavaScript"
         '
-        'MarkdownTableToolStripMenuItem
+        'QPrintableToolStripMenuItem
         '
-        Me.MarkdownTableToolStripMenuItem.Name = "MarkdownTableToolStripMenuItem"
-        Me.MarkdownTableToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
-        Me.MarkdownTableToolStripMenuItem.Text = "Markdown Table"
+        Me.QPrintableToolStripMenuItem.Name = "QPrintableToolStripMenuItem"
+        Me.QPrintableToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.QPrintableToolStripMenuItem.Text = "QPrintable"
         '
         'ClipZapMain
         '
@@ -576,5 +583,6 @@
     Friend WithEvents UnURL As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToURL As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MarkdownTableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents QPrintableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 #End Region 
 End Class
