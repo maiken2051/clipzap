@@ -85,6 +85,7 @@
         Me.HTMLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HTMLParaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MarkdownTableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MySQLColAddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QPrintableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SlashesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -102,7 +103,7 @@
         Me.CodeSQL = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodeVB = New System.Windows.Forms.ToolStripMenuItem()
         Me.CodeFormatJavaScript = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MySQLColAddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TicksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainMenu1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -355,7 +356,7 @@
         '
         'QuickToolStripMenuItem
         '
-        Me.QuickToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetToolStripMenuItem, Me.CommaSepToolStripMenuItem, Me.DDLFieldsToolStripMenuItem, Me.DDLFieldListToolStripMenuItem, Me.HTMLToolStripMenuItem, Me.HTMLParaToolStripMenuItem, Me.MarkdownTableToolStripMenuItem, Me.MySQLColAddToolStripMenuItem, Me.QPrintableToolStripMenuItem, Me.QuotesToolStripMenuItem, Me.SlashesToolStripMenuItem, Me.SQLTableToolStripMenuItem, Me.SQLUpdateToolStripMenuItem, Me.UnHTMLToolStripMenuItem, Me.UnURL, Me.ToURL})
+        Me.QuickToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetToolStripMenuItem, Me.CommaSepToolStripMenuItem, Me.DDLFieldsToolStripMenuItem, Me.DDLFieldListToolStripMenuItem, Me.HTMLToolStripMenuItem, Me.HTMLParaToolStripMenuItem, Me.MarkdownTableToolStripMenuItem, Me.MySQLColAddToolStripMenuItem, Me.QPrintableToolStripMenuItem, Me.QuotesToolStripMenuItem, Me.SlashesToolStripMenuItem, Me.SQLTableToolStripMenuItem, Me.SQLUpdateToolStripMenuItem, Me.TicksToolStripMenuItem, Me.UnHTMLToolStripMenuItem, Me.UnURL, Me.ToURL})
         Me.QuickToolStripMenuItem.Name = "QuickToolStripMenuItem"
         Me.QuickToolStripMenuItem.Size = New System.Drawing.Size(50, 20)
         Me.QuickToolStripMenuItem.Text = "&Quick"
@@ -370,25 +371,25 @@
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(143, 22)
         Me.ToolStripMenuItem2.Text = "&BCStatic"
         '
         'DataTableToolStripMenuItem
         '
         Me.DataTableToolStripMenuItem.Name = "DataTableToolStripMenuItem"
-        Me.DataTableToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DataTableToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.DataTableToolStripMenuItem.Text = "&DataTable"
         '
         'FiddlerToolStripMenuItem
         '
         Me.FiddlerToolStripMenuItem.Name = "FiddlerToolStripMenuItem"
-        Me.FiddlerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FiddlerToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.FiddlerToolStripMenuItem.Text = "&Fiddler"
         '
         'ToNetTableToolStripMenuItem
         '
         Me.ToNetTableToolStripMenuItem.Name = "ToNetTableToolStripMenuItem"
-        Me.ToNetTableToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ToNetTableToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
         Me.ToNetTableToolStripMenuItem.Text = "To .&Net Table"
         '
         'CommaSepToolStripMenuItem
@@ -426,6 +427,12 @@
         Me.MarkdownTableToolStripMenuItem.Name = "MarkdownTableToolStripMenuItem"
         Me.MarkdownTableToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.MarkdownTableToolStripMenuItem.Text = "Markdown Table"
+        '
+        'MySQLColAddToolStripMenuItem
+        '
+        Me.MySQLColAddToolStripMenuItem.Name = "MySQLColAddToolStripMenuItem"
+        Me.MySQLColAddToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.MySQLColAddToolStripMenuItem.Text = "MySQL Col Add"
         '
         'QPrintableToolStripMenuItem
         '
@@ -529,11 +536,11 @@
         Me.CodeFormatJavaScript.Size = New System.Drawing.Size(140, 22)
         Me.CodeFormatJavaScript.Text = "JavaScript"
         '
-        'MySQLColAddToolStripMenuItem
+        'TicksToolStripMenuItem
         '
-        Me.MySQLColAddToolStripMenuItem.Name = "MySQLColAddToolStripMenuItem"
-        Me.MySQLColAddToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.MySQLColAddToolStripMenuItem.Text = "MySQL Col Add"
+        Me.TicksToolStripMenuItem.Name = "TicksToolStripMenuItem"
+        Me.TicksToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.TicksToolStripMenuItem.Text = "&Ticks"
         '
         'ClipZapMain
         '
@@ -601,5 +608,6 @@
     Friend WithEvents FiddlerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToNetTableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MySQLColAddToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TicksToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 #End Region 
 End Class

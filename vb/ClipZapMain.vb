@@ -1082,4 +1082,15 @@ Friend Class ClipZapMain
                                    Return "alter table " + tblName + " add column " + x.Trim(" "c, ","c) + ";"
                                End Function)
     End Sub
+
+    Private Sub TicksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TicksToolStripMenuItem.Click
+        '
+        ' Wipe out backticks
+        '
+
+        Standard_Process_Lines(Function(x As String)
+                                   Return x.Replace("`", "")
+                               End Function)
+
+    End Sub
 End Class
