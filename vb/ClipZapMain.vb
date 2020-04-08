@@ -1138,5 +1138,33 @@ Friend Class ClipZapMain
 
     End Function
 
+    Private Sub JiraLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles JiraLinkToolStripMenuItem.Click
+        '
+        ' Look for Jira link
+        '
+
+        Dim src As String = My.Computer.Clipboard.GetText()
+
+        If String.IsNullOrEmpty(src) Then
+            Status.Text = "Clipboard Empty"
+            Exit Sub
+        End If
+
+        Dim match As Match = New Regex("(?<!([A-Z]{1,10})-?)[A-Z]+-\d+").Match(src)
+
+        If Not match.Success Then
+            Status.Text = "No Jira found"
+            Exit Sub
+        End If
+
+        Dim jira As String = match.Value
+
+        Status.Text = jira
+
+        My.Computer.Clipboard.Clear()
+
+        ClipboardHelper.ClipboardHelper.CopyToClipboard("<a href=""https://issues.hubspotcentral.com/browse/" + jira + """>" + jira + "</a>", jira)
+
+    End Sub
 
 End Class
