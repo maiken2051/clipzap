@@ -1093,4 +1093,50 @@ Friend Class ClipZapMain
                                End Function)
 
     End Sub
+
+    Private Sub MySQLChecksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MySQLChecksToolStripMenuItem.Click
+        GenericCBFormat(AddressOf CheckConstraints)
+    End Sub
+
+    Private Function CheckConstraints(ByVal text As String) As String
+        '
+        ' Calculate Check constraints
+        '
+
+        Dim tblName As String, match As Match, flags As MatchCollection, output As New StringBuilder, fieldName As String
+
+        match = New Regex("CREATE TABLE `(\w+)`", RegexOptions.IgnoreCase).Match(text)
+
+        If Not match.Success Then
+            CheckConstraints = text
+            Exit Function
+        End If
+
+        tblName = match.Groups(1).Value
+
+        flags = New Regex("`(\w+)`\s+TINYINT(?:\(\d+\))? NOT NULL DEFAULT", RegexOptions.IgnoreCase).Matches(text)
+
+        For Each match In flags
+
+            output.Append("alter table ")
+
+            output.Append(tblName)
+
+            fieldName = match.Groups(1).Value
+
+            output.Append(" add constraint if not exists chk_")
+
+            output.Append(fieldName)
+
+            output.Append(" check(").Append(fieldName).Append(" = 0 or ").Append(fieldName).AppendLine(" = 1);")
+
+            output.AppendLine()
+
+        Next
+
+        CheckConstraints = output.ToString()
+
+    End Function
+
+
 End Class
